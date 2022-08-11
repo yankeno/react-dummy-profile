@@ -4,7 +4,7 @@ import BodyCard from "./BodyCard";
 
 const Content = () => {
   return (
-    <Grid container spacing={2} style={{ "margin-top": "1px" }}>
+    <Grid container spacing={1} style={{ "margin-top": "1px" }}>
       <Grid item xs={4}>
         <BodyCard />
       </Grid>

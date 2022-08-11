@@ -12,14 +12,14 @@ const getProfile = async () => {
 };
 
 const Profile = () => {
-  // getProfile()
-  //   .then((results) => {
-  //     results.forEach((result) => {});
-  //   })
-  //   .catch((err) => {
-  //     alert(`データの読み込みに失敗しました。<br />
-  //       error: ${err}`);
-  //   });
+  getProfile()
+    .then((results) => {
+      results.forEach((result) => {});
+    })
+    .catch((err) => {
+      alert(`データの読み込みに失敗しました。<br />
+        error: ${err}`);
+    });
   return (
     <div className="ContentCard p-4">
       <div class="max-w-sm rounded overflow-hidden shadow-lg text-center">
