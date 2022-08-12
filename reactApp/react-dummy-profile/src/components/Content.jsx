@@ -32,7 +32,7 @@ const Content = () => {
   } else {
     return (
       <Grid container spacing={1} style={{ marginTop: "1px" }}>
-        {profile.forEach((element, index) => (
+        {profile.map((element, index) => (
           <Grid item xs={4}>
             <BodyCard
               title={element["name"]["first"] + " " + element["name"]["last"]}
