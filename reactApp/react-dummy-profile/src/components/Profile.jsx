@@ -1,7 +1,7 @@
 import React from "react";
 
 const getProfile = async () => {
-  const url = "https://randomuser.me/api/?results=100";
+  const url = "https://randomuser.me/api/?results=15";
   const response = await fetch(url, { mtthod: "get" });
   const json = response.json();
   if (response.status === 200) {
