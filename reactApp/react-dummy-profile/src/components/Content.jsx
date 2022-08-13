@@ -21,11 +21,18 @@ const Content = () => {
     return Promise.resolve(profileJson);
   };
   const getPhoto = async () => {
-    const photoUrl =
-      "https://pixabay.com/api/?category=computer&&key=" + apiKey;
+    const photoUrl = "https://pixabay.com/api/?category=computer&key=" + apiKey;
     const photoResponse = await fetch(photoUrl, { mthod: "get" });
     const photoJson = photoResponse.json();
     return Promise.resolve(photoJson);
+  };
+
+  const shuffle = ([...array]) => {
+    for (let i = array.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   };
 
   useEffect(() => {
@@ -34,7 +41,7 @@ const Content = () => {
         setProfile(data.results);
       }),
       getPhoto().then((data) => {
-        setPhoto(data.hits);
+        setPhoto(shuffle(data.hits));
       }),
     ]).then(() => {
       setIsLoaded(true);
@@ -59,9 +66,7 @@ const Content = () => {
               imageUrl={photo[index]["webformatURL"]}
               gender={element["gender"]}
               location={element["location"]}
-              email={element["email"]}
               dob={element["dob"]}
-              phone={element["phone"]}
               key={index}
             />
           </Grid>

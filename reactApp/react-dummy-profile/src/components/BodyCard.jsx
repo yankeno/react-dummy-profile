@@ -34,9 +34,7 @@ export default function BodyCard(props) {
     imageUrl,
     gender,
     location,
-    email,
     dob,
-    phone,
   } = props;
 
   const handleExpandClick = () => {
