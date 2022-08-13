@@ -27,7 +27,17 @@ const ExpandMore = styled((props) => {
 
 export default function BodyCard(props) {
   const [expanded, setExpanded] = React.useState(false);
-  const { avatarUrl, title, subheader, text, imageUrl, detail } = props;
+  const {
+    title,
+    subheader,
+    avatarUrl,
+    imageUrl,
+    gender,
+    location,
+    email,
+    dob,
+    phone,
+  } = props;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -47,9 +57,7 @@ export default function BodyCard(props) {
       />
       <CardMedia component="img" height="150px" image={imageUrl} />
       <CardContent>
-        <Typography variant="body2" component="p">
-          {text}
-        </Typography>
+        <Typography variant="body2" component="p"></Typography>
       </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
@@ -69,7 +77,12 @@ export default function BodyCard(props) {
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{detail}</Typography>
+          <Typography paragraph>
+            gender: {gender} <br />
+            age: {dob["age"]} <br />
+            location: {location["state"]}, {location["country"]} <br />
+            postcode: {location["postcode"]}
+          </Typography>
         </CardContent>
       </Collapse>
     </Card>
